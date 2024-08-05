@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Card, InputGroup, Form, Button } from "react-bootstrap"
 import { FaPenToSquare } from "react-icons/fa6"
 import { MdDelete } from "react-icons/md"
@@ -6,8 +6,12 @@ import { MdDelete } from "react-icons/md"
 
 const Todo = () => {
     const [value, setValue] = useState("")
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState(  JSON.parse(localStorage.getItem("todos")) || [])
     const [edit, setEdit] = useState(null)
+
+    useEffect(() =>{
+        localStorage.setItem("todos",JSON.stringify(todos))
+     },[todos])
 
     const onHandleChange = (event) => {
         setValue(event.target.value)
@@ -26,7 +30,6 @@ const Todo = () => {
         }
         setValue("")
 
-        console.log(todos)
     }
 
     const onHandleDelete = (index) => {
@@ -39,6 +42,7 @@ const Todo = () => {
         setValue(todos[index].value)
 
     }
+    
 
 
     return (
@@ -103,3 +107,6 @@ const Todo = () => {
 }
 
 export default Todo
+
+
+

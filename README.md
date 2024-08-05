@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 <!-- This is Simple Todo Application  -->
 
-this is Todo Application With React is simple in Design For Pratice 
+this is Todo Application With React is simple in Design For Pratice with Local strorage
 
 steps to Run Project 
 -> npm i 
